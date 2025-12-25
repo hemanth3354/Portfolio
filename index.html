@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemanth Kumar K | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f2fe, #fdf2f8);
+      color: #1e293b;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+      color: #fff;
+      padding: 50px 20px;
+      text-align: center;
+      animation: fadeDown 1s ease;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: #0f172a;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      margin: 0 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+      transform: translateY(-2px);
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      animation: fadeUp 1s ease;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      color: #2563eb;
+      border-left: 5px solid #9333ea;
+      padding-left: 12px;
+    }
+
+    ul {
+      margin-left: 20px;
+      line-height: 1.8;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: linear-gradient(135deg, #dbeafe, #ede9fe);
+      margin: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skills span:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .projects div {
+      padding: 15px;
+      border-left: 4px solid #2563eb;
+      margin-bottom: 18px;
+      background: #f8fafc;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .projects div:hover {
+      transform: translateX(8px);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #2563eb, #9333ea);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #475569;
+      animation: fadeUp 1.2s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2rem; }
+      nav a { display: inline-block; margin: 8px; }
+      section { margin: 20px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>HEMANTHKUMAR K</h1>
+  <p>Fresher | Aspiring Software / IT Professional</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  I am a dedicated and enthusiastic fresher with a strong interest in web development, databases, and IT support roles. I enjoy turning ideas into practical solutions and continuously improving my technical and communication skills.
+As a quick learner, I adapt easily to new technologies and work environments. I am looking for an entry-level opportunity where I can contribute to organizational goals while growing professionally</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Java</span>
+    <span>DBMS</span>
+    <span>OOP's Concepts</span>
+    <span>Data Structures and Algorithms</span>
+    <span>MySQL</span>
+    <span>Git & GitHub</span>
+    <span>Basic Linux</span>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience & Training</h2>
+  <ul>
+    <li>Completed hands-on training in Web Development covering HTML, CSS, JavaScript, PHP, and MySQL.</li>
+    <li>Worked on mini projects and academic projects focusing on real-world problem solving.</li>
+    <li>Basic exposure to IT Support tasks such as troubleshooting, software installation, and system configuration.</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div>
+      <strong>Online Voting System</strong>
+      <p>Objective: The primary objective of the Online Voting System is to digitize and simplify the process of 
+conducting elections through a secure, efficient, and user-friendly web platform. This system is 
+designed to replace the traditional paper-based voting process with an electronic alternative, reducing 
+human effort, time, and the possibility of errors or manipulation. <p>Languages used in this project - Front-End : React.js, JavaScript, HTML, CSS ; Back-End : Mongo DB, 
+Postman, Node.js, Express.js</p>
+ </p>
+    </div>
+    <div>
+      <strong>Bus Ticket Booking System</strong>
+      <p>Objective: Developed a full-stack Bus Ticket Booking system enabling users to search, ticket reservation 
+booking, enhances user experience and manage bus tickets with real-time seat availability and payment 
+integration. </p>
+      <p>Languages used in this project - Front-End : React.js, JavaScript, HTML, CSS ; Back-End : Mongo DB, 
+Postman, Node.js, Express.js </p>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <ul>
+    <li> Completed MERN stack development from NYINST. 
+<p>• Completed intensive training on full-stack web development using MongoDB, Express.js, React.js, 
+and Node.js. </p>
+• Developed dynamic, responsive web applications with React for frontend and Node/Express for 
+backend, integrating MongoDB for database management. </li>
+    <li>JAVA FULL STACK training at Arcus Infotech. 
+<p>• Completed hands-on training in Java Full Stack development covering Core Java, HTML, CSS, 
+JavaScript,  and SQL.</p> </li>
+  
+  </ul>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>Master of Computer Applications [MCA]  -  St. Francis College, Bangalore                   [2023 – 2025]                                                         
+Bengaluru City University  |  7.7 CGPA </li>
+    <li>Bachelor of Computer Applications [BCA]  -   Govt. First Grade College, Kolar            [2020 - 2023]                                                
+Bengaluru North University    |  8.3 CGPA  </li>
+  </ul>
+</section>
+
+<section id="strengths">
+  <h2>Strengths</h2>
+  <ul>
+    <li>Quick learner with strong problem-solving ability</li>
+    <li>Good communication and teamwork skills</li>
+    <li>Self-motivated and adaptable to new technologies</li>
+    <li>Positive attitude and willingness to take responsibility</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: hemanthkumar3354@gmail.com</p>
+  <p>Phone: +91-8317440936</p>
+  <a class="btn" href="resume.pdf" download>Download Resume</a>
+</section>
+
+</body>
+</html>

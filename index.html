@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemanth Kumar K | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background: radial-gradient(circle at center, #0c102b 0%, #03050c 100%);
+    color:white;
+    position: relative;
+    overflow-x: hidden;
+    /* Perspective removed from body so position:fixed canvas stays locked to viewport */
+}
+
+/* Fixed Background Canvas Layer (Permanently Locked) */
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    display: block;
+}
+
+header{
+    text-align:center;
+    padding:80px 20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+nav{
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    text-align:center;
+    z-index: 1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* Section Boxes with 3D Tilt Animations */
+section{
+    max-width:1000px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 32px rgba(0,0,0,.4);
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+section:hover{
+    transform: perspective(1000px) translateY(-10px) rotateX(2deg) rotateY(1.5deg) scale(1.02);
+    box-shadow: 0 20px 45px rgba(100, 220, 255, 0.3);
+    border-color: rgba(100, 220, 255, 0.8) !important;
+}
+
+#about{
+    background:rgba(37, 99, 235, 0.35);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+#skills{
+    background:rgba(80, 7, 249, 0.35);
+    border: 1px solid rgba(154, 69, 234, 0.3);
+}
+
+#projects{
+    background:rgba(236, 72, 153, 0.35);
+    border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+#education{
+    background:rgba(250, 42, 42, 0.35);
+    border: 1px solid rgba(82, 154, 111, 0.3);
+}
+#certifications{
+    background:rgba(249, 7, 192, 0.35);
+    border: 1px solid rgba(49, 49, 232, 0.3);
+}
+#str{
+    background:rgba(96, 94, 96, 0.35);
+    border: 1px solid rgba(12, 12, 20, 0.3);
+}
+#contact{
+    background:rgba(3, 192, 250, 0.35);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+}
+
+h2{
+    margin-bottom:15px;
+    border-left:5px solid white;
+    padding-left:10px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill{
+    background:rgba(255, 255, 255, 0.9);
+    color:#111827;
+    padding:10px 15px;
+    border-radius:25px;
+    font-weight:600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-4px) scale(1.08);
+    background: #38bdf8;
+    color: white;
+}
+
+.project{
+    background:rgba(0,0,0,.25);
+    padding:20px;
+    border-radius:15px;
+    margin-top:15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project:hover {
+    transform: perspective(1000px) translateZ(10px);
+    background: rgba(0,0,0,.4);
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 24px;
+    background:white;
+    color:#1e3a8a;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05) translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background: rgba(0,0,0,0.4);
+}
+
+@media(max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:8px;
+    }
+
+    section{
+        margin:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<header>
+    <h1>HEMANTH KUMAR K</h1>
+    <p>MCA Graduate | MERN Stack Developer | Software Engineer Aspirant</p>
+    <a href="https://www.linkedin.com/in/hemanthkumar-k-7837ba29a" style="color:rgb(244, 240, 240);" target=_blank>linkedin.hemanthkumar-k-7837ba29a</a><br>
+    <a href="https://github.com/hemanth3354/" style="color:rgb(244, 240, 240);" target=_blank>hemanth.github.com</a>
+</header>
+ 
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Aspiring software developer with a Master of Computer Applications (MCA) degree and hands-on
+training in full stack development. Eager to contribute technical skills and problem-solving abilities
+in a dynamic IT environment. Looking for an entry-level role where I can grow as a professional
+and add value to innovative projects.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+         <div class="skill">Python</div>
+        <div class="skill">React.js</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">MongoDB</div>
+        <div class="skill">Java</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Linux</div>
+        <div class="skill">Data Structures and Algorithms</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+        <h3>Online Voting System</h3>
+        <p>
+            Developed a Online Voting System is to digitize and simplify the process of conducting elections
+through a secure, efficient, and user-friendly web platform. This system is designed to replace the
+traditional paper-based voting process with an electronic alternative, reducing human effort, time,
+and the possibility of errors or manipulation.
+        </p>
+    </div>
+
+    <div class="project">
+        <h3>Bus Ticket Booking System</h3>
+        <p>
+            Developed a full-stack Bus Ticket Booking system enabling users to search, ticket reservation booking, enhances user experience and manage bus tickets with real-time seat availability and payment
+integration.
+        </p>
+    </div>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <p><strong>Master of Computer Applications [MCA] -                 [2023  -  2025]</strong></p>
+     <p>St. Francis College, Bengaluru | CGPA: 7.7</p>
+    <br>
+    <p><strong>Bachelor of Computer Applications [BCA] - [2020 - 2023]</strong></p>
+    <p> Govt. First Grade College, Kolar | CGPA: 8.3</p>
+</section>
+
+<section id="certifications">
+    <h2>Certifications and Training</h2>
+
+   <div class="project">
+        <h3>MERN Stack Developer Trainee – Xcel Corp  </h3>
+        <p>- Built responsive web applications using React.js and Node.js</p>
+        <p>- Worked with MongoDB for backend data management</p>
+        <p>- Gained hands-on experience in REST APIs and full-stack workflows</p>
+    </div>
+
+    <div class="project">
+        <h3>JAVA FULL STACK TRAINING – Arcus Infotech </h3>
+        <p>- Completed hands-on training in Core Java, OOPS, JDBC, SQL, HTML, CSS, JavaScript</p> 
+        <p>- Developed web applications using Java, Servlets (basics), and MySQL</p> 
+        <p>- Worked on frontend–backend integration and CRUD operations</p> 
+        <p>- Gained practical exposure to software development lifecycle (SDLC)</p> 
+    </div>
+
+    <div class="project">
+        <h3>Data Analytics Training (Self-Learning)</h3>
+        <p>- Completed a Data Analytics training program through YouTube tutorials, where I learned and practiced Excel, SQL, Python, and Power BI.</p>
+        <p>- Gained hands-on experience in data cleaning, data analysis, visualization, dashboard creation, and generating business insights using sample datasets.</p>
+    </div>
+
+    <div class="project">
+        <h3>SOFTWARE TESTING training at Besant Technologies. </h3>
+        <p>- Completed hands-on training in STLC, manual testing, test case design, defect life cycle, Agile methodology, and basic selenium concepts.</p> 
+    </div>
+
+    <div class="project">
+        <h3>Machine Learning & Data Analytics Trainee – Infosys Springboard </h3>
+        <p>- Learned fundamentals of Machine Learning and Data Analytics</p> 
+        <p>- Worked with Python for basic data analysis and data handling</p>
+        <p>- Performed data cleaning and preprocessing on sample datasets</p>
+        <p>- Created simple data visualizations to understand trends and patterns</p>
+        <p>- Gained exposure to basic ML models and analytical concepts</p>
+    </div>
+</section>
+
+<section id="str">
+    <h2>Strengths</h2>
+    <div class="str">
+        <p>- Quick learner with strong problem-solving ability</p>
+        <p>- Good communication and teamwork skills</p>
+        <p>- Self-motivated and adaptable to new technologies</p>
+        <p>- Positive attitude and willingness to take responsibility</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: hemanthkumar3354@gmail.com</p>
+    <p>Phone: +91 8317440936</p>
+
+    <a href="resume.pdf" download class="btn">
+        Download Resume
+    </a>
+</section>
+
+<footer>
+    <p>© 2026 Hemanth Kumar K. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+    let time = 0;
+
+    // 3D Wave Particle Grid
+    class WaveParticle {
+        constructor(x, z) {
+            this.x = x;
+            this.z = z;
+            this.y = 0;
+        }
+        update(t) {
+            this.y = Math.sin(this.x * 0.006 + t * 1.2) * 50 + Math.cos(this.z * 0.008 + t) * 35;
+        }
+        draw(t) {
+            const fov = 450;
+            let currentZ = this.z - (t * 35) % 500;
+            if (currentZ < -200) currentZ += 1000;
+
+            const scale = fov / (fov + currentZ);
+            const x2d = (this.x * scale) + (width / 2);
+            const y2d = (this.y * scale) + (height / 2) + 80;
+
+            if (x2d >= 0 && x2d <= width && y2d >= 0 && y2d <= height && scale > 0) {
+                const size = scale * 1.6;
+                const opacity = Math.min(1, scale * 0.8);
+
+                ctx.fillStyle = `rgba(120, 215, 255, ${opacity})`;
+                ctx.beginPath();
+                ctx.arc(x2d, y2d, Math.max(0.4, size), 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    }
+
+    // 3D Rotating Wireframe Rectangles / Cubes
+    class Shape3D {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = (Math.random() - 0.5) * width * 1.4;
+            this.y = (Math.random() - 0.5) * height * 0.9;
+            this.z = Math.random() * 700 + 100;
+            
+            this.w = Math.random() * 70 + 40;
+            this.h = Math.random() * 70 + 40;
+            this.d = Math.random() * 70 + 40;
+
+            this.rx = Math.random() * Math.PI * 2;
+            this.ry = Math.random() * Math.PI * 2;
+            this.vrx = (Math.random() - 0.5) * 0.015;
+            this.vry = (Math.random() - 0.5) * 0.015;
+        }
+        update() {
+            this.z -= 1.8;
+            if (this.z < 50) {
+                this.reset();
+                this.z = 800;
+            }
+            this.rx += this.vrx;
+            this.ry += this.vry;
+        }
+        draw() {
+            const fov = 450;
+            const scale = fov / (fov + this.z);
+            if (scale <= 0) return;
+
+            const hw = this.w / 2;
+            const hh = this.h / 2;
+            const hd = this.d / 2;
+
+            const vertices = [
+                [-hw, -hh, -hd], [hw, -hh, -hd], [hw, hh, -hd], [-hw, hh, -hd],
+                [-hw, -hh,  hd], [hw, -hh,  hd], [hw, hh,  hd], [-hw, hh,  hd]
+            ];
+
+            const projected = vertices.map(v => {
+                let [x, y, z] = v;
+
+                // Rotate Y
+                let x1 = x * Math.cos(this.ry) + z * Math.sin(this.ry);
+                let z1 = -x * Math.sin(this.ry) + z * Math.cos(this.ry);
+
+                // Rotate X
+                let y2 = y * Math.cos(this.rx) - z1 * Math.sin(this.rx);
+                let z2 = y * Math.sin(this.rx) + z1 * Math.cos(this.rx);
+
+                let totalZ = this.z + z2;
+                const s = fov / (fov + totalZ);
+
+                return {
+                    x: (this.x + x1) * s + (width / 2),
+                    y: (this.y + y2) * s + (height / 2)
+                };
+            });
+
+            const edges = [
+                [0,1], [1,2], [2,3], [3,0],
+                [4,5], [5,6], [6,7], [7,4],
+                [0,4], [1,5], [2,6], [3,7]
+            ];
+
+            ctx.strokeStyle = `rgba(100, 220, 255, ${Math.min(0.7, scale * 0.9)})`;
+            ctx.lineWidth = Math.max(1, scale * 1.8);
+            ctx.beginPath();
+            edges.forEach(edge => {
+                const p1 = projected[edge[0]];
+                const p2 = projected[edge[1]];
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+            });
+            ctx.stroke();
+        }
+    }
+
+    // Initialize particles & shapes
+    const particles = [];
+    const cols = 70;
+    const rows = 35;
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            particles.push(new WaveParticle((i - cols / 2) * 32, j * 35));
+        }
+    }
+
+    const shapes = Array.from({ length: 15 }, () => new Shape3D());
+
+    function animate() {
+        // Soft trail clearing effect for smooth glow
+        ctx.fillStyle = 'rgba(6, 9, 23, 0.25)';
+        ctx.fillRect(0, 0, width, height);
+
+        time += 0.025;
+
+        particles.forEach(p => {
+            p.update(time);
+            p.draw(time);
+        });
+
+        shapes.forEach(s => {
+            s.update();
+            s.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</body>
+</html>
